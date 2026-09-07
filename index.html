@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script>
+  (function() {
+    var isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+                   || window.innerWidth <= 768;
+    if (isMobile) {
+      window.location.replace("fernas-mobile.html");
+    }
+  })();
+</script>
   <meta charset="utf-8">
   <title>Bundled Page</title>
   <style>
