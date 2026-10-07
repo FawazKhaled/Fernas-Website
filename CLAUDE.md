@@ -14,14 +14,14 @@ A static, multi-page site for Fernas, a student-founded venture studio in Dhahra
 - **No build step or dependencies.** Do not add npm, a bundler, a framework, or CDN scripts. If generating repetitive HTML would help, run the generator from the session scratchpad and commit only its output.
 - **Assets live flat in `assets/`.** No subfolders. Name files in kebab case by purpose, for example `team-yasr.webp` or `poster-laptop.jpg`.
 
-To preview, serve the folder from the shell (`python -m http.server 8765 --directory <this folder>`) and open the URL in the browser pane. That writes nothing into the project.
+GitHub Pages processes Jekyll front matter to publish clean page URLs and redirects. A basic Python HTTP server does not process that front matter, so use the published site to verify clean routes and legacy redirects. A local Jekyll install is not part of this project.
 
 ## Structure
 
 - Pages: `index.html`, `about.html`, `projects.html`, `team.html`, `contact.html`, `terms.html`, `privacy.html`, `404.html`.
 - `assets/site.css` is the only stylesheet. `assets/site.js` is the only script.
 - The `<head>`, header, CTA band, and footer are duplicated in every page. When you change one, change it in all pages that have it. The CTA band is left out of `contact.html` and `404.html`.
-- `404.html` uses root-absolute paths (`/assets/...`, `/about.html`) because GitHub Pages serves it at any depth. Every other page uses relative paths so the site also works when opened from disk.
+- Internal page links use clean root-absolute paths (`/about`, `/contact`, `/`); GitHub Pages maps these with Jekyll permalinks. The original `.html` URLs redirect to the clean paths through `jekyll-redirect-from`. `404.html` uses root-absolute asset paths (`/assets/...`) because GitHub Pages serves it at any depth; regular pages use relative asset paths.
 - `fernas-mobile.html` no longer exists. The site is responsive, and `404.html` redirects that old URL to `/`.
 
 ## Design system

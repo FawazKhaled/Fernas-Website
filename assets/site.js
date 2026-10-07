@@ -422,7 +422,7 @@
         activated = true;
         showBubble(finalMessage, true);
         setTimeout(function () {
-          window.location.assign("contact.html");
+          window.location.assign("/contact");
         }, 1800);
         return;
       }

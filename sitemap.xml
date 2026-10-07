@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://fernasteam.com/</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://fernasteam.com/about.html</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://fernasteam.com/projects.html</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://fernasteam.com/team.html</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://fernasteam.com/contact.html</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://fernasteam.com/terms.html</loc><lastmod>2026-10-07</lastmod></url>
-  <url><loc>https://fernasteam.com/privacy.html</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://fernasteam.com/about</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://fernasteam.com/projects</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://fernasteam.com/team</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://fernasteam.com/contact</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://fernasteam.com/terms</loc><lastmod>2026-10-07</lastmod></url>
+  <url><loc>https://fernasteam.com/privacy</loc><lastmod>2026-10-07</lastmod></url>
 </urlset>
