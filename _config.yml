@@ -3,5 +3,3 @@
 exclude:
   - README.md
   - CLAUDE.md
-plugins:
-  - jekyll-redirect-from
