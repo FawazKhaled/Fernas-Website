@@ -2,22 +2,22 @@
 
 The website for [Fernas](https://fernasteam.com), a student-founded venture studio in Dhahran, Saudi Arabia. Fernas turns students' ideas into real projects, built by our own teams and backed by our own funding.
 
-The site is plain HTML, CSS, and JavaScript. There is no frontend framework or JavaScript build step. GitHub Pages processes the page permalinks and redirects so clean URLs work while old `.html` links continue to redirect.
+The site is plain HTML, CSS, and JavaScript. There is no framework, build step, or dependencies.
 
 ## Pages
 
 | File | URL | What it shows |
 | --- | --- | --- |
 | `index.html` | `/` | Hero, how it works, and the latest news as a flip-through comic |
-| `about.html` | `/about` | The story behind the name, our four principles, and the mascot |
-| `projects.html` | `/projects` | Scalendars, LinkU, MenaBonka, and KFUPM Masar |
-| `team.html` | `/team` | The six co-founders, introduced by the FERNAS mascot |
-| `contact.html` | `/contact` | The "Send an idea" form |
-| `terms.html` | `/terms` | Terms of Service |
-| `privacy.html` | `/privacy` | Privacy Policy |
+| `about.html` | `/about.html` | The story behind the name, our four principles, and the mascot |
+| `projects.html` | `/projects.html` | Scalendars, LinkU, MenaBonka, and KFUPM Masar |
+| `team.html` | `/team.html` | The six co-founders, introduced by the FERNAS mascot |
+| `contact.html` | `/contact.html` | The "Send an idea" form |
+| `terms.html` | `/terms.html` | Terms of Service |
+| `privacy.html` | `/privacy.html` | Privacy Policy |
 | `404.html` | any missing page | Not-found page (GitHub Pages serves it automatically) |
 
-Each project has its own anchor, so `/projects#masar` opens on KFUPM Masar. The anchors are `#scalendars`, `#linku`, `#menabonka`, and `#masar`.
+Each project has its own anchor, so `projects.html#masar` opens on KFUPM Masar. The anchors are `#scalendars`, `#linku`, `#menabonka`, and `#masar`.
 
 ## Folder layout
 
@@ -28,14 +28,20 @@ Fernas-Website-main/
 │   ├── site.css     the one stylesheet, design tokens at the top
 │   └── site.js      the one script (menu, comic, carousel, team intro, form)
 ├── CNAME            custom domain for GitHub Pages (fernasteam.com)
-├── _config.yml      configures GitHub Pages exclusions and legacy URL redirects
+├── _config.yml      keeps project documentation out of the published site
 ├── robots.txt
 └── sitemap.xml
 ```
 
 ## Preview locally
 
-GitHub Pages processes the Jekyll front matter that creates clean page URLs and redirects old `.html` links. Opening a source HTML file or serving the folder with a basic static server will not reproduce those routes; use the published GitHub Pages site to verify route behavior. The contact form only sends from the published site.
+Open `index.html` in a browser, or serve the folder so links and the video behave exactly like the live site:
+
+```bash
+python -m http.server 8000
+```
+
+Then visit <http://localhost:8000>. The contact form only sends from the published site; locally it offers to open your email app instead.
 
 ## Deploy
 
