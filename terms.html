@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service · Fernas</title>
+    <meta
+      name="description"
+      content="Terms of Service for Fernas. Read the rules for using the Fernas website, submitting ideas, and working with our venture studio."
+    />
+    <style>
+      :root {
+        --paper: #e2d3b4;
+        --paper-strong: #d9caab;
+        --cream: #ebdfc5;
+        --card: #f4ebd9;
+        --ink: #14120f;
+        --green: #416b4a;
+        --green-dark: #37603f;
+        --muted: #3f3a34;
+        --line: rgba(20, 18, 15, 0.35);
+        --shadow: 4px 4px 0 rgba(20, 18, 15, 0.25);
+        --shadow-lg: 8px 8px 0 rgba(20, 18, 15, 0.25);
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: "Segoe UI", Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(1200px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(235, 223, 197, 0.94);
+        border-bottom: 2px solid var(--ink);
+        backdrop-filter: blur(6px);
+      }
+
+      .site-header__inner {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 72px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 0;
+      }
+
+      .brand__mark {
+        width: 38px;
+        height: 38px;
+        display: block;
+        flex-shrink: 0;
+      }
+
+      .brand__name {
+        font-family: "Arial Black", Impact, sans-serif;
+        font-size: clamp(1.2rem, 1vw + 1rem, 2.1rem);
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        line-height: 1;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: stretch;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .site-nav a,
+      .site-nav button,
+      .btn,
+      .outline-btn {
+        font-family: "SFMono-Regular", Consolas, monospace;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .site-nav a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 16px;
+        border: 0;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .site-nav a:hover,
+      .site-nav a:focus-visible {
+        color: var(--green);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: 8px;
+      }
+
+      .btn,
+      .outline-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 20px;
+        border: 2px solid var(--ink);
+        background: var(--card);
+        color: var(--ink);
+        box-shadow: var(--shadow);
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .btn:hover,
+      .btn:focus-visible,
+      .outline-btn:hover,
+      .outline-btn:focus-visible {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0 rgba(20, 18, 15, 0.3);
+      }
+
+      .btn--primary {
+        background: var(--green);
+        color: var(--cream);
+      }
+
+      .page {
+        padding: 64px 0 64px;
+      }
+
+      .page__inner {
+        background: rgba(255, 255, 255, 0.08);
+        border: 2px solid var(--ink);
+        box-shadow: var(--shadow-lg);
+        padding: clamp(22px, 5vw, 42px);
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--green);
+      }
+
+      h1 {
+        margin: 0 0 20px;
+        font-size: clamp(2.2rem, 5vw, 4.2rem);
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+      }
+
+      .meta {
+        margin-bottom: 28px;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .tos {
+        font-size: 1rem;
+        color: var(--ink);
+      }
+
+      .tos h2 {
+        margin: 30px 0 12px;
+        font-size: clamp(1.2rem, 1.7vw, 1.8rem);
+        line-height: 1.2;
+      }
+
+      .tos h3 {
+        margin: 22px 0 10px;
+        font-size: 1.08rem;
+      }
+
+      .tos p,
+      .tos li {
+        margin: 0 0 14px;
+        color: var(--ink);
+      }
+
+      .tos ul,
+      .tos ol {
+        margin: 0 0 18px 1.3em;
+        padding: 0;
+      }
+
+      .tos li {
+        margin-bottom: 8px;
+      }
+
+      .site-footer {
+        border-top: 2px solid var(--ink);
+        background: rgba(235, 223, 197, 0.45);
+        padding: 32px 0 28px;
+      }
+
+      .site-footer__grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 28px;
+      }
+
+      .site-footer__brand p,
+      .footer-links,
+      .site-footer__bottom {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li + li {
+        margin-top: 8px;
+      }
+
+      .footer-links a:hover,
+      .footer-links a:focus-visible {
+        color: var(--green-dark);
+      }
+
+      .footer-heading {
+        margin: 0 0 12px;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--green);
+      }
+
+      .site-footer__bottom {
+        margin-top: 20px;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 720px) {
+        .site-header__inner {
+          flex-wrap: wrap;
+          align-items: center;
+          min-height: 0;
+          padding: 10px 0;
+        }
+
+        .site-nav {
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+        .header-actions {
+          margin-left: 0;
+          padding-bottom: 8px;
+        }
+
+        .site-footer__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a href="index.html" class="brand" aria-label="Fernas home">
+          <svg class="brand__mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+            <circle cx="50" cy="50" r="50" fill="#14120F" />
+            <path d="M37 53C43 51.5 46.5 44 50 42.5 53.5 44 57 51.5 63 53Z" fill="#EBDFC5"/>
+            <path d="M.09 53H99.91A50 50 0 0 1 99.71 55.4H.29A50 50 0 0 1 .09 53Z" fill="#EBDFC5"/>
+            <path d="M.78 58.8H99.22A50 50 0 0 1 98.73 61.2H1.27A50 50 0 0 1 .78 58.8Z" fill="#EBDFC5"/>
+            <path d="M2.37 65.2H30C40 65.2 40 63.2 50 63.2S60 65.2 70 65.2H97.63A50 50 0 0 1 96.65 68H70C60 68 60 66 50 66S40 68 30 68H3.35A50 50 0 0 1 2.37 65.2Z" fill="#EBDFC5"/>
+            <path d="M5.3 72.4H32C41 72.4 41 68.8 50 68.8S59 72.4 68 72.4H94.7A50 50 0 0 1 90.3 79.6H74C62 79.6 62 77.2 50 77.2S38 79.6 26 79.6H9.7A50 50 0 0 1 5.3 72.4Z" fill="#EBDFC5"/>
+          </svg>
+          <span class="brand__name">FERNAS</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="team.html">Team</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="outline-btn" href="mailto:contact@fernasteam.com">Contact us</a>
+          <a class="btn btn--primary" href="contact.html">Send an idea</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="page">
+      <div class="container">
+        <div class="page__inner">
+          <p class="eyebrow">Fernas · Dhahran, Saudi Arabia</p>
+          <h1>Terms of Service</h1>
+          <div class="meta">Last updated: 10/07/2026</div>
+
+          <article class="tos">
+            <section>
+              <h2>1. Who we are</h2>
+              <p>
+                These Terms of Service ("Terms") govern your use of the website at
+                fernasteam.com (the "Website"). The Website is operated by Fernas
+                ("Fernas," "we," "us," or "our"), a student-founded venture studio based in
+                Dhahran, Saudi Arabia.
+              </p>
+              <p>You can contact us at contact@fernasteam.com.</p>
+            </section>
+
+            <section>
+              <h2>2. Accepting these Terms</h2>
+              <p>
+                By using the Website or submitting anything through it, you agree to these Terms.
+                If you do not agree, please do not use the Website.
+              </p>
+              <p>
+                You must be at least 18 years old to submit an idea or message through the Website.
+                If you are under 18, you may only do so with the permission and involvement of a
+                parent or legal guardian, who agrees to these Terms on your behalf.
+              </p>
+            </section>
+
+            <section>
+              <h2>3. What the Website is for</h2>
+              <p>
+                The Website gives information about Fernas, our projects, and our team, and lets
+                you send us ideas or messages.
+              </p>
+              <p>
+                The information on the Website is general. Descriptions of projects that are "in
+                progress," "under construction," or "coming soon" reflect our current plans and may
+                change. We do not guarantee that any project will launch, or launch in the form described.
+              </p>
+              <p>
+                Some of our projects, such as Scalendars, are separate services with their own
+                websites and terms. These Terms cover only fernasteam.com.
+              </p>
+            </section>
+
+            <section>
+              <h2>4. Submitting ideas</h2>
+              <p>When you send us an idea, message, or other material through the Website or by email (a "Submission"), the following applies:</p>
+              <ol>
+                <li>
+                  <strong>a)</strong> You keep ownership. You keep any rights you have in your Submission.
+                  Sending it to us does not transfer ownership to Fernas.
+                </li>
+                <li>
+                  <strong>b)</strong> Permission to review. You give us permission to read, store, discuss internally,
+                  and evaluate your Submission so we can decide whether to take it on and reply to you.
+                </li>
+                <li>
+                  <strong>c)</strong> No confidentiality. We cannot treat Submissions as confidential, and sending one
+                  does not create a confidential relationship. Please do not send anything you need kept secret,
+                  such as detailed technical designs, source code, trade secrets, or anything you plan to patent.
+                  If an idea needs protection, tell us first and we can discuss signing a confidentiality agreement
+                  before you share details.
+                </li>
+                <li>
+                  <strong>d)</strong> No obligation. We are not obliged to review, respond to, accept, or develop any
+                  Submission. We read every Submission, but we reply only to the ones we can take on.
+                </li>
+                <li>
+                  <strong>e)</strong> Similar ideas. We receive many ideas, and our own teams develop projects of their own.
+                  We may already be working on, or may later work on, ideas similar to yours. Receiving your Submission
+                  does not stop Fernas from independently developing, or working with others on, similar ideas,
+                  and it does not entitle you to compensation in those cases.
+                </li>
+                <li>
+                  <strong>f)</strong> Projects we take on. If we decide to take on your idea, we will agree the details with
+                  you in a separate written agreement. That agreement will cover ownership, roles, credit, funding,
+                  and any revenue or equity. Nothing is agreed until that agreement is signed by both sides. Without one,
+                  Fernas owes you no payment, funding, equity, or credit.
+                </li>
+                <li>
+                  <strong>g)</strong> Your promises. By sending a Submission, you confirm that:
+                  <ul>
+                    <li>it is your own work, or you have the right to share it;</li>
+                    <li>it does not infringe anyone else's intellectual property, privacy, or other rights;</li>
+                    <li>it does not contain anything unlawful, offensive, or harmful, or any confidential information belonging to someone else.</li>
+                  </ul>
+                </li>
+              </ol>
+            </section>
+
+            <section>
+              <h2>5. "Free to start"</h2>
+              <p>
+                Sending us an idea is free, and we do not charge students to get started. "Free to start" means
+                we will never ask you to pay to submit an idea or to have it reviewed. It is not a promise that any
+                idea will be accepted, funded, or built. Funding decisions are entirely up to Fernas and are made case by case.
+              </p>
+            </section>
+
+            <section>
+              <h2>6. Acceptable use</h2>
+              <p>When using the Website, you agree not to:</p>
+              <ul>
+                <li>break any applicable law, including Saudi Arabia's Anti-Cyber Crime Law;</li>
+                <li>send spam, false information, or Submissions made in someone else's name;</li>
+                <li>try to gain unauthorized access to the Website, its servers, or any connected system;</li>
+                <li>introduce viruses, malware, or any harmful code;</li>
+                <li>overload, disrupt, or interfere with the Website, including through automated scraping or form abuse;</li>
+                <li>copy, reproduce, or misuse the Website's content except as Section 8 allows.</li>
+              </ul>
+              <p>We may block access or ignore Submissions from anyone who breaks these rules.</p>
+            </section>
+
+            <section>
+              <h2>7. Your personal data</h2>
+              <p>
+                When you use the contact form, we collect your name, email address, phone number, and the contents of
+                your message. We use this information only to review your Submission and to contact you about it. We handle
+                personal data under the Kingdom of Saudi Arabia's Personal Data Protection Law and its Implementing Regulations.
+              </p>
+              <p>
+                For details on what we collect, why, where it is processed, how long we keep it, and how to access,
+                correct, or delete it, see our <a href="privacy.html">Privacy Policy</a>.
+              </p>
+            </section>
+
+            <section>
+              <h2>8. Our content and trademarks</h2>
+              <p>
+                The Website and its content belong to Fernas or are used with permission. This includes text, design, the
+                Fernas name and logo, the Arabic logotype "فرناس للناس," the FERNAS mascot, comic artwork, posters,
+                photographs, team illustrations, and video.
+              </p>
+              <p>
+                You may view the Website and share links to it. You may not copy, modify, republish, sell, or use our
+                content, name, logo, or mascot for any commercial purpose, or in a way that suggests we endorse you,
+                without our written permission.
+              </p>
+              <p>
+                Project names and logos (Scalendars, LinkU, MenaBonka, KFUPM Masar) belong to Fernas or their respective owners.
+                KFUPM, Aramco, GSR26, and any other third-party names on the Website belong to their owners and are mentioned only
+                for identification. Their mention does not imply endorsement.
+              </p>
+            </section>
+
+            <section>
+              <h2>9. Links to other websites</h2>
+              <p>
+                The Website links to other websites, such as LinkedIn, Scalendars, and team members' personal portfolios.
+                We do not control those websites and are not responsible for their content, availability, or privacy practices.
+                Your use of them is governed by their own terms.
+              </p>
+            </section>
+
+            <section>
+              <h2>10. No warranties</h2>
+              <p>
+                The Website is provided "as is" and "as available." To the extent the law allows, we make no promises that the
+                Website will always be available, error-free, secure, or up to date, or that the information on it is complete or accurate.
+                We may change, suspend, or remove any part of the Website at any time without notice.
+              </p>
+            </section>
+
+            <section>
+              <h2>11. Limitation of liability</h2>
+              <p>
+                To the fullest extent permitted by the laws of the Kingdom of Saudi Arabia, Fernas and its founders, members,
+                and volunteers are not liable for any indirect, incidental, or consequential loss arising from your use of the
+                Website or your Submissions. This includes lost profits, lost opportunities, or lost data. Nothing in these
+                Terms limits liability that cannot be limited by law.
+              </p>
+            </section>
+
+            <section>
+              <h2>12. Indemnity</h2>
+              <p>
+                If you break these Terms, or if your Submission infringes someone else's rights, you agree to be responsible for
+                any resulting claims, losses, or costs Fernas reasonably incurs, to the extent permitted by law.
+              </p>
+            </section>
+
+            <section>
+              <h2>13. Changes to these Terms</h2>
+              <p>
+                We may update these Terms from time to time. When we do, we will change the "Last updated" date at the top.
+                If you keep using the Website after an update, you accept the new Terms. Changes do not apply retroactively
+                to Submissions already covered by a signed agreement.
+              </p>
+            </section>
+
+            <section>
+              <h2>14. Governing law and disputes</h2>
+              <p>
+                These Terms are governed by the laws of the Kingdom of Saudi Arabia. Before taking any formal action, both sides
+                agree to first try to resolve any dispute informally by contacting each other in writing. If a dispute cannot be
+                resolved that way within 30 days, it will be handled by the competent courts of the Kingdom of Saudi Arabia.
+              </p>
+            </section>
+
+            <section>
+              <h2>15. General</h2>
+              <p>
+                If any part of these Terms is found unenforceable, the rest stays in effect. If we don't enforce a right immediately,
+                we haven't given it up. These Terms, together with our Privacy Policy and any signed project agreement, are the
+                entire agreement between you and Fernas about the Website.
+              </p>
+            </section>
+
+            <section>
+              <h2>16. Contact</h2>
+              <p>Questions about these Terms can be sent to contact@fernasteam.com.</p>
+              <p>Fernas · Dhahran, Saudi Arabia</p>
+            </section>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container site-footer__grid">
+        <div class="site-footer__brand">
+          <a href="index.html" class="brand" aria-label="Fernas home">
+            <svg class="brand__mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+              <circle cx="50" cy="50" r="50" fill="#14120F" />
+              <path d="M37 53C43 51.5 46.5 44 50 42.5 53.5 44 57 51.5 63 53Z" fill="#EBDFC5"/>
+              <path d="M.09 53H99.91A50 50 0 0 1 99.71 55.4H.29A50 50 0 0 1 .09 53Z" fill="#EBDFC5"/>
+              <path d="M.78 58.8H99.22A50 50 0 0 1 98.73 61.2H1.27A50 50 0 0 1 .78 58.8Z" fill="#EBDFC5"/>
+              <path d="M2.37 65.2H30C40 65.2 40 63.2 50 63.2S60 65.2 70 65.2H97.63A50 50 0 0 1 96.65 68H70C60 68 60 66 50 66S40 68 30 68H3.35A50 50 0 0 1 2.37 65.2Z" fill="#EBDFC5"/>
+              <path d="M5.3 72.4H32C41 72.4 41 68.8 50 68.8S59 72.4 68 72.4H94.7A50 50 0 0 1 90.3 79.6H74C62 79.6 62 77.2 50 77.2S38 79.6 26 79.6H9.7A50 50 0 0 1 5.3 72.4Z" fill="#EBDFC5"/>
+            </svg>
+            <span class="brand__name">FERNAS</span>
+          </a>
+          <p>A student-founded venture studio. We turn students' ideas into real projects, built by our own teams and backed by our own funding.</p>
+        </div>
+
+        <nav aria-labelledby="footer-pages">
+          <h2 class="footer-heading" id="footer-pages">Pages</h2>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="footer-heading">Connect</h2>
+          <ul class="footer-links">
+            <li><a href="https://www.linkedin.com/company/fernas-co/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:contact@fernasteam.com">contact@fernasteam.com</a></li>
+            <li>Dhahran, Saudi Arabia</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container site-footer__bottom">
+        <span>&copy; 2026 Fernas. All rights reserved.</span>
+        <span>Fernas · Venture studio</span>
+      </div>
+    </footer>
+  </body>
+</html>
