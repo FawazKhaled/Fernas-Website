@@ -1721,3 +1721,33 @@ textarea.field__input { min-height: 160px; resize: vertical; }
   .btn:hover, .btn:active, .icon-btn:hover, .icon-btn:active { transform: none; }
   .btn__spinner { animation: spin 1.4s linear infinite !important; }
 }
+
+/* ---------------------------------------------------------------- Film */
+.section--film { background: var(--ink); color: var(--cream); }
+.section--film .eyebrow { color: var(--mint); }
+.film { display: flex; flex-direction: column; gap: var(--space-3); }
+.film .h2 { color: var(--cream); }
+.film__frame {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+  margin: var(--space-3) auto 0;
+  border: var(--border);
+  border-color: var(--cream);
+}
+.film__embed {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: var(--ink);
+}
+.film__fallback {
+  margin: var(--space-2) 0 0;
+  color: var(--mint);
+  font-size: var(--fs-small);
+  text-align: center;
+}
+@media (min-width: 900px) {
+  .section--film .film { align-items: center; text-align: center; }
+}

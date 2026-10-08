@@ -277,9 +277,10 @@
 
     /* The poster hides behind a play button; native controls take over once
        the video starts, so pausing and seeking work with any input. */
-    var video = $(".cp__video", book);
-    var play = $(".cp__play", book);
-    if (video && play) {
+    $$(".cp__video-panel", book).forEach(function (panel) {
+      var video = $(".cp__video", panel);
+      var play = $(".cp__play", panel);
+      if (!video || !play) return;
       video.controls = false;
       play.addEventListener("click", function () {
         video.controls = true;
@@ -288,7 +289,7 @@
         if (p && p.catch) p.catch(function () {});
         video.focus();
       });
-    }
+    });
 
     build();
     comic.classList.add("is-ready");
@@ -469,26 +470,55 @@
       var AC = window.AudioContext || window.webkitAudioContext;
       if (!AC) return;
       if (!audio) {
-        audio = new AC();
-        fetch(blipSrc)
-          .then(function (r) { return r.arrayBuffer(); })
-          .then(function (data) { return new Promise(function (ok, fail) { audio.decodeAudioData(data, ok, fail); }); })
-          .then(function (decoded) { buffer = decoded; })
-          .catch(function () {});
+        try { audio = new AC(); } catch (err) { return; }
+        if (blipSrc) {
+          fetch(blipSrc)
+            .then(function (r) { if (!r.ok) throw new Error(); return r.arrayBuffer(); })
+            .then(function (data) { return new Promise(function (ok, fail) { audio.decodeAudioData(data, ok, fail); }); })
+            .then(function (decoded) { buffer = decoded; })
+            .catch(function () {});
+        }
       }
-      if (audio.state !== "running" && audio.resume) audio.resume();
+      if (audio.state !== "running" && audio.resume) {
+        var r = audio.resume();
+        if (r && r.catch) r.catch(function () {});
+      }
+      /* iOS only unlocks output after a sound starts inside a gesture. */
+      try {
+        var silent = audio.createBufferSource();
+        silent.buffer = audio.createBuffer(1, 1, 22050);
+        silent.connect(audio.destination);
+        silent.start(0);
+      } catch (err) {}
     }
     function blip(rate) {
-      if (muted || !audio || !buffer || audio.state !== "running") return;
+      if (muted || !audio) return;
+      if (audio.state !== "running") {
+        if (audio.resume) { var r = audio.resume(); if (r && r.catch) r.catch(function () {}); }
+        return;
+      }
       try {
-        var src = audio.createBufferSource();
         var gain = audio.createGain();
-        src.buffer = buffer;
-        src.playbackRate.value = rate;
-        gain.gain.value = 0.45;
-        src.connect(gain);
         gain.connect(audio.destination);
-        src.start(0);
+        var t = audio.currentTime;
+        if (buffer) {
+          var src = audio.createBufferSource();
+          src.buffer = buffer;
+          src.playbackRate.value = rate;
+          gain.gain.value = 0.45;
+          src.connect(gain);
+          src.start(t);
+        } else {
+          /* The sample hasn't loaded (or can't, e.g. opened from disk): synthesise the blip. */
+          var osc = audio.createOscillator();
+          osc.type = "square";
+          osc.frequency.value = 520 * rate;
+          gain.gain.setValueAtTime(0.08, t);
+          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.03);
+          osc.connect(gain);
+          osc.start(t);
+          osc.stop(t + 0.035);
+        }
       } catch (err) {}
     }
     function paintSound() {
@@ -501,11 +531,19 @@
       try { localStorage.setItem("fernas-sound", muted ? "off" : "on"); } catch (err) {}
       paintSound();
     });
-    if (!muted) {
-      var unlock = function () { ensureAudio(); document.removeEventListener("pointerdown", unlock, true); document.removeEventListener("keydown", unlock, true); };
-      document.addEventListener("pointerdown", unlock, true);
-      document.addEventListener("keydown", unlock, true);
-    }
+    /* Browsers keep audio locked until a gesture, so unlock on the first one. */
+    var unlock = function () {
+      if (muted) return;
+      ensureAudio();
+      if (audio && audio.state === "running") {
+        document.removeEventListener("pointerdown", unlock, true);
+        document.removeEventListener("keydown", unlock, true);
+        document.removeEventListener("touchend", unlock, true);
+      }
+    };
+    document.addEventListener("pointerdown", unlock, true);
+    document.addEventListener("keydown", unlock, true);
+    document.addEventListener("touchend", unlock, true);
     paintSound();
 
     function flag(row, token, on) {
